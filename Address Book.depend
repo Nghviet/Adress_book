@@ -1,0 +1,52 @@
+# depslib dependency file v1.0
+1552575321 source:l:\address book\main.cpp
+	<bits/stdc++.h>
+	"Person.h"
+	"Constant.h"
+	"Storage.h"
+
+1552487823 source:l:\address book\person.cpp
+	"Person.h"
+	"Storage.h"
+	"Constant.h"
+	<algorithm>
+
+1552487823 l:\address book\person.h
+	<string>
+	<fstream>
+	<iostream>
+	<vector>
+	<map>
+	<fstream>
+
+1552488143 l:\address book\constant.h
+
+1552576973 source:l:\address book\storage.cpp
+	"Storage.h"
+	"Person.h"
+	"Constant.h"
+	<iostream>
+	<string>
+	<fstream>
+	<istream>
+	<algorithm>
+	<time.h>
+
+1552576973 l:\address book\storage.h
+	"Person.h"
+	<string>
+	<vector>
+
+1551875322 source:l:\address book\crypt.cpp
+	"Crypt.h"
+	"Constant.h"
+	<vector>
+	<string>
+	<cstdlib>
+	<time.h>
+	<iostream>
+
+1551875322 l:\address book\crypt.h
+	<vector>
+	<string>
+
