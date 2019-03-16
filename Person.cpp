@@ -2,19 +2,24 @@
 #include"Storage.h"
 #include"Constant.h"
 #include<algorithm>
-
+#include<math.h>
 Person::Person()
 {
     priority = 2;
 }
 
-Person::Person(const std::string& name,const std::string & _number,const std::string & _id)
+Person::Person(const std::string& name,const std::string & _number,const std::string & _id,const std::vector<std::string> _group)
 {
     fullName = name;
     splitedName = split(name);
     number = _number;
+    group = _group;
     id = _id;
     priority = 2;
+
+    std::sort(group.begin(),group.end());
+    auto last = std::unique(group.begin(),group.end());
+    group.erase(last,group.end());
 }
 
 bool Person::remove()
@@ -30,7 +35,7 @@ bool Person::remove()
     std::cout<<l<<std::endl;
     std::cout<<id<<std::endl;
     std::cout<<data[l]<<std::endl;
-//    data.erase(data.begin()+l);
+    data.erase(data.begin()+l);
     return true;
 }
 
@@ -56,6 +61,14 @@ bool cmpId(const Person &a,const Person &b)
 
 bool cmpName(const Person &a,const Person &b)
 {
+    int tmp = std::min(a.splitedName.size(),b.splitedName.size());
+    for(int i=0;i<tmp;i++)
+    {
+        if(a.splitedName[a.splitedName.size()-1-i] > b.splitedName[b.splitedName.size()-1-i]) return false;
+        if(a.splitedName[a.splitedName.size()-1-i] < b.splitedName[b.splitedName.size()-1-i]) return true;
+    }
+    if(a.splitedName.size()>b.splitedName.size()) return false;
+    if(a.splitedName.size()<b.splitedName.size()) return true;
     return true;
 }
 
@@ -65,6 +78,9 @@ std::ostream& operator<<(std::ostream& out, const Person &p)
     out<<"  ID     : "<<p.id<<std::endl;
     out<<"  Name   : "<<p.fullName<<std::endl;
     out<<"  Number : "<<p.number<<std::endl;
+    out<<"  Group  : "<<std::endl;
+    for(auto i:p.group)
+        out<<"    "<<i<<std::endl;
     out<<"}"<<std::endl;
     return out;
 }

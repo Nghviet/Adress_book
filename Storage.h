@@ -6,32 +6,17 @@
 #include"Person.h"
 #include<string>
 #include<vector>
+#include<utility>
+typedef std::pair<std::string,std::string> ss;
 
 extern std::vector<Person> data;
+extern std::map<std::string,std::string> groupId;
+extern std::vector<ss> groupData;
+extern long curGroupId;
 extern long current;
 
-bool load();
+void load();
 
-std::string genId();
-
-bool add();
-
-bool record();
-
-void update(const std::string &name);
-
-bool sortId();
-
-bool sortFName();
-
-bool sortLName();
-
-Person findId(const std::string &Id);
-
-std::vector<Person> findByName(const std::string &name);
-
-std::vector<Person> findByNumber(const std::string &number);
-
-void remove();
+void record();
 
 #endif // STORAGE_H_INCLUDED

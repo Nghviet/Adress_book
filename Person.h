@@ -17,12 +17,14 @@ struct Person
         std::string fullName;
         std::vector<std::string> splitedName;
         std::string number;
+        std::vector<std::string> group;
 
         Person();
 
         Person(const std::string & name,
                const std::string & _number,
-               const std::string & _id);
+               const std::string & _id,
+               const std::vector<std::string> _group);
 
         bool remove();
 

@@ -3,65 +3,31 @@
 #include "Person.h"
 #include "Constant.h"
 #include "Storage.h"
+#include "Action.h"
 using namespace std;
 
 int main()
 {
-    if(!load())
-    {
-        return 0;
-    }
+    load();
 
     char input;
-    bool quit = false;
-
-    time_t timer = chrono::system_clock::to_time_t(chrono::system_clock::now());
-
-    while(!quit)
+    while(cin>>input)
     {
-        cin>>input;
+
         switch(input)
         {
             case ADD:{
-                if(add()) cout<<"Add completed"<<endl;
+                add();
+                cout<<"Add complete"<<endl;
                 break;
             }
             case REMOVE:{
                 remove();
+                cout<<"Remove complete"<<endl;
                 break;
             }
             case FIND:{
-                vector<Person> memory;
-                cout<<"Find by name   : 1"<<std::endl;
-                cout<<"Find by number : 2"<<std::endl;
-                while(true)
-                {
-                    cin>>input;
-                    if(input == FIND_BY_NAME)
-                    {
-                        string name;
-                        cout<<"Name:";
-                        cin.ignore();
-                        getline(cin,name);
-                        memory = findByName(name);
-                        break;
-                    }
-                    else
-                    if(input == FIND_BY_NUMBER)
-                    {
-                        string number;
-                        cout<<"Number:";
-                        cin.ignore();
-                        getline(cin,number);
-                        memory = findByNumber(number);
-                        break;
-                    }
-                    else cout<<"Unsupport input"<<endl;
-                }
-
-                cout<<"Found "<<memory.size()<<" matched"<<endl;
-                for(auto i:memory) cout<<i<<endl;
-
+                find();
                 break;
             }
             case PRINTALL:{
@@ -71,18 +37,17 @@ int main()
                 break;
             }
             case UPDATE:{
-                cout<<"Update:"<<endl;
-                cout<<"Update by name: 1"<<endl;
-                cout<<
+                update();
                 break;
             }
             case QUIT:{
-                quit = true;
-                break;
+                record();
+                return 0;
             }
 
-            case FINDID:
-            {
+
+            /** Debug only */
+            case FINDID:{
                 string t;
                 cout<<"Find id:";
                 cin>>t;
@@ -90,8 +55,5 @@ int main()
             }
         }
     }
-
-    if(!record()) cout<<"Cant record data";
-    return 0;
 }
 
