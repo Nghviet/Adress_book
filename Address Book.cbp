@@ -32,6 +32,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Action.cpp" />
+		<Unit filename="Action.h" />
 		<Unit filename="Constant.h" />
 		<Unit filename="Crypt.cpp" />
 		<Unit filename="Crypt.h" />

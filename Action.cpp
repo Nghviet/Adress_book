@@ -172,7 +172,7 @@ void remove()
 }
 void removeByName()
 {
-    std::cout<<"Input name to remove";
+    std::cout<<"Input name to remove:";
     std::string name;
     std::cin.ignore();
     std::getline(std::cin,name);

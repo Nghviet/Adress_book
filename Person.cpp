@@ -29,12 +29,12 @@ bool Person::remove()
     while(l<r)
     {
         int mid = (l+r)>>1;
-        std::cout<<l<<" "<<r<<" "<<mid<<std::endl;
+//        std::cout<<l<<" "<<r<<" "<<mid<<std::endl;
         if(data[mid].id<id) l = mid + 1 ;else r = mid;
     }
-    std::cout<<l<<std::endl;
-    std::cout<<id<<std::endl;
-    std::cout<<data[l]<<std::endl;
+//    std::cout<<l<<std::endl;
+//    std::cout<<id<<std::endl;
+//    std::cout<<data[l]<<std::endl;
     data.erase(data.begin()+l);
     return true;
 }
@@ -75,7 +75,6 @@ bool cmpName(const Person &a,const Person &b)
 std::ostream& operator<<(std::ostream& out, const Person &p)
 {
     out<<"{"<<std::endl;
-    out<<"  ID     : "<<p.id<<std::endl;
     out<<"  Name   : "<<p.fullName<<std::endl;
     out<<"  Number : "<<p.number<<std::endl;
     out<<"  Group  : "<<std::endl;
